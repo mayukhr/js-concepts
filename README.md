@@ -22,7 +22,7 @@ to check which <li> is clicked, we can do, `e.target.id` which will give `item-2
   }
   ```
   
-  - If the new keyword is used when calling the function, this inside the function is a brand new object.
+  - If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
   ```
   function Fruit(color, taste, seeds) {
     console.log(this); // Fruit {color: "Yellow", seeds: 1, taste: "Sweet"}
@@ -35,3 +35,38 @@ to check which <li> is clicked, we can do, `e.target.id` which will give `item-2
 // Create an object
 const fruit1 = new Fruit('Yellow', 'Sweet', 1);
   ```
+- If apply, call, or bind are used to call/create a function, this inside the function is the object that is passed in as the argument.
+  ```
+  function Car(type, fuelType){
+	this.type = type;
+	this.fuelType = fuelType;
+}
+
+function setBrand(brand){
+	Car.call(this, "convertible", "petrol");
+	this.brand = brand;
+	console.log(`Car details = `, this);
+}
+
+function definePrice(price){
+	Car.call(this, "convertible", "diesel");
+	this.price = price;
+	console.log(`Car details = `, this);
+}
+
+const newBrand = new setBrand('Brand1');
+<!-- {
+  brand: "Brand1",
+  fuelType: "petrol",
+  type: "convertible"
+} -->
+const newCarPrice = new definePrice(100000);
+<!--   {
+  fuelType: "diesel",
+  price: 100000,
+  type: "convertible"
+} -->
+  ```
+ - If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
+ - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
+ - If multiple of the above rules apply, the rule that is higher wins and will set the this value.
