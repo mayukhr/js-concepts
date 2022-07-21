@@ -36,11 +36,12 @@ to check which <li> is clicked, we can do, `e.target.id` which will give `item-2
 const fruit1 = new Fruit('Yellow', 'Sweet', 1);
   ```
 - If apply, call, or bind are used to call/create a function, this inside the function is the object that is passed in as the argument.
-  ```
+ 
+```
   function Car(type, fuelType){
 	this.type = type;
 	this.fuelType = fuelType;
-}
+  }
 
 function setBrand(brand){
 	Car.call(this, "convertible", "petrol");
@@ -55,17 +56,17 @@ function definePrice(price){
 }
 
 const newBrand = new setBrand('Brand1');
-<!-- {
+{
   brand: "Brand1",
   fuelType: "petrol",
   type: "convertible"
-} -->
+} 
 const newCarPrice = new definePrice(100000);
-<!--   {
+  {
   fuelType: "diesel",
   price: 100000,
   type: "convertible"
-} -->
+} 
   ```
  - If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
  - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
