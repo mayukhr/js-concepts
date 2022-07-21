@@ -14,6 +14,8 @@ to check which <li> is clicked, we can do, `e.target.id` which will give `item-2
   
 #### 2. How 'this' works in js?
   
+	https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3
+	
  - for `arrow` functions, this is Surrounding scope at the time of creation.
   Ex: 
   ```
