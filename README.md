@@ -73,3 +73,33 @@ const newCarPrice = new definePrice(100000);
  - If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
  - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
  - If multiple of the above rules apply, the rule that is higher wins and will set the this value.
+
+	
+	
+#### 3. What is prototypal inheritance?
+	
+	```
+		function Animal(name) {
+		  this.name = name;
+		}
+
+		Animal.prototype.status = function (){
+		  return `${this.name} is sleepy!`;
+		}
+
+		function Gorilla(name) {
+		  Animal.call(this, name);
+		  this.name = name;
+		}
+
+		Gorilla.prototype = Object.create(Animal.prototype);
+		Gorilla.prototype.eyeColor = function () {
+		  return `${this.name} has red eyes!`;
+		}
+
+		const anim = new Animal('random');
+		const gorr = new Gorilla('white Gorilla');
+
+		console.log(gorr)
+	
+	```
