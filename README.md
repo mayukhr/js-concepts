@@ -130,3 +130,21 @@ const newCarPrice = new definePrice(100000);
 		let e = mapj.bind([2,3,4], a=>a*a);
 	```
 	
+#### 5. Write polyfill of filter()
+	
+	```
+		const filterj = function (callback) {
+		  const res = [];
+		  for(let item of this) {
+		    if(callback(item))
+		      res.push(item)
+		  }
+		  return res;
+		}
+
+		let b = [1,2,3,48888,'bbijbiiiiiib'].filter(a=>a.length>3)
+
+		console.log(b)
+	```
+	
+	
