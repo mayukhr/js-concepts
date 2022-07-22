@@ -103,3 +103,30 @@ const newCarPrice = new definePrice(100000);
 		console.log(gorr)
 	
 	```
+
+	
+#### 4. Write polyfill of map() | How to call it using call()?
+	
+	```
+		 const  mapj = function (callback) {
+		  let inputArr = this;
+		  if(inputArr instanceof Array) {
+		    let result = [];
+
+		    for(item of inputArr) {
+		      result.push(callback(item))
+		    }
+		    return result;
+		  }
+		  else {
+		    throw new Error (`${inputArr} is not an array`)
+		  }
+		}
+		Array.prototype.mapj = mapj;
+		// let b = [1,2,3].mapj(a=>a*a);
+
+		let c=mapj.call([2,3,4], a=>a*a)// call( this, ...args )
+		let d = mapj.apply([2,3,4], [a=>a*a])
+		let e = mapj.bind([2,3,4], a=>a*a);
+	```
+	
