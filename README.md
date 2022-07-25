@@ -189,3 +189,27 @@ const newCarPrice = new definePrice(100000);
 		console.log(mergeSort(list)) 
 							    
 	```
+###4. Simple Linked List traversal
+
+```
+	class ListNode {
+	  constructor(value, next) {
+	    this.value = value;
+	    this.next = next;
+	  }
+	}
+
+	let ll = [5,4,3,2,1].reduce((acc, item) => new ListNode(item, acc), null)
+
+
+	function traverse(head) {
+	  let currentNode = head;
+	  console.log(head)
+	  while(currentNode) {
+	    console.log(currentNode.value)
+	    currentNode = currentNode.next;
+	  }
+	}
+
+	traverse(ll);
+```
