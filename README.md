@@ -213,3 +213,31 @@ const newCarPrice = new definePrice(100000);
 
 	traverse(ll);
 ```
+
+###4. Javascript Chaining
+
+```
+function styleMe(element) {
+  // grab element
+  const component = document.getElementsByTagName(element)[0];
+  console.log(component);
+
+  function addBorder(borderProps) {
+    component.style.border = borderProps;
+    return this;
+  }
+  
+  function addBackgroundColor(bgProps) {
+    component.style.background = bgProps;
+    return this;
+  }
+
+  return {
+    component,
+    addBorder,
+    addBackgroundColor
+  };
+}
+
+styleMe("h1").addBorder("solid 2px yellow").addBackgroundColor("red");
+```
