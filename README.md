@@ -147,7 +147,7 @@ const newCarPrice = new definePrice(100000);
 		console.log(b)
 	```
 	
-###4. mergeSort 
+### 6. mergeSort 
 	
 	```
 		function mergeSort (arr) {
@@ -189,7 +189,24 @@ const newCarPrice = new definePrice(100000);
 		console.log(mergeSort(list)) 
 							    
 	```
-###4. Simple Linked List traversal
+	
+### 7. bubbleSort 
+```
+	function bubbleSort(arr) {
+	  for(let i=0; i<arr.length; i++) {
+	    for(let j=0; j<arr.length-i; j++) {
+	      if(arr[j]>arr[j+1]) {
+		let min = arr[j+1];
+		arr[j+1] = arr[j];
+		arr[j] = min;
+	      }
+	    }
+	  }
+	  return arr;
+	}
+```
+
+### 8. Simple Linked List traversal
 
 ```
 	class ListNode {
@@ -214,7 +231,7 @@ const newCarPrice = new definePrice(100000);
 	traverse(ll);
 ```
 
-###4. Javascript Chaining
+### 9. Javascript Chaining
 
 ```
 function styleMe(element) {
