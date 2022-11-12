@@ -74,7 +74,64 @@ const newCarPrice = new definePrice(100000);
  - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
  - If multiple of the above rules apply, the rule that is higher wins and will set the this value.
 
+
+### 2.a. MORE ON THIS:
+
+	```
+	// this in an object
+	// 'this' should point to the object
+	const a = {
+	  name: 'a',
+	  getName: function() {
+	    console.log(this)
+	  }
+	}
+	```
 	
+	Also, a non-member function would have a this pointing to the window object even if it resides inside object block.
+	how to solve it?
+	
+	```
+	let someObj = {
+	  namex: 'mak',
+	  interests: ['gaming', 'x', 'y', 'math'],
+	  getDetails: function() {
+	    let that = this;
+	    // this.interests.forEach(item => console.log(item, this.namex))
+	    this.interests.forEach(function(item){
+	      console.log(item, that.namex)
+	    })
+
+	  }
+	}
+	```
+	
+	this in a method. 'this' is going to point to the global/window depending on the environment
+	
+	```
+	function tryThis() {
+	  console.log(this); // window/global obj
+	}
+	```
+	
+	What if we use this function with 'new' keyword?
+	'new' creates an empty obj first. and 'this' points to the empty obj
+	'this' will point to the constructed object here.
+	
+	```
+	function TryThis(somevar) {
+	  this.somevar = somevar;
+	  console.log(this);
+
+	  this.method = function() {
+	    console.log(this);
+	  }
+	}
+	const tt = new TryThis('something'); // TryThis {somevar: 'something'}
+	const tt2 = new TryThis('something2'); //TryThis {somevar: 'something2'}
+	const tt = new TryThis('ss');
+	tt.method();
+	```
 	
 #### 3. What is prototypal inheritance?
 	
