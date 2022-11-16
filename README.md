@@ -160,7 +160,35 @@ const newCarPrice = new definePrice(100000);
 		console.log(gorr)
 	
 	```
+#### 3.a Inheritance using class?
+	
+	```
+	function Animal(name){
+	  this.name = name;
+	}
 
+	Animal.prototype.status = function() {
+	  console.log(`${this.name} is sleepy!`)
+	}
+
+	function Gorilla(name) {
+	  Animal.call(this, name);
+	}
+
+	Gorilla.prototype = Object.create(Animal.prototype);
+
+
+	Gorilla.prototype.enjoys = function() {
+	  console.log(`${this.name} enjoys fighting!`)
+	}
+
+	const anim = new Animal('random');
+	const gorr = new Gorilla('white Gorilla');
+
+	anim.status()
+	gorr.status()
+	
+	```
 	
 #### 4. Write polyfill of map() | How to call it using call()?
 	
